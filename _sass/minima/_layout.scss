@@ -29,7 +29,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 46px;
+  //height: 46px;
 }
 
 .site-title {
@@ -65,15 +65,13 @@
 
     // Gaps between nav items, but not on the last one
     &:not(:last-child) {
-      margin-right: 20px;
+      margin-right: 15px;
     }
   }
 
   @include media-query($on-palm) {
-    position: absolute;
-    top: 9px;
-    right: $spacing-unit / 2;
-    background-color: $background-color;
+    position: relative;
+    background-color: #656565;
     border: 1px solid $grey-color-light;
     border-radius: 5px;
     text-align: right;
@@ -91,7 +89,7 @@
       display: block;
       float: right;
       width: 36px;
-      height: 26px;
+      height: 36px;
       line-height: 0;
       padding-top: 10px;
       text-align: center;
@@ -102,23 +100,30 @@
     }
 
     input ~ .trigger {
+
       clear: both;
       display: none;
     }
 
     input:checked ~ .trigger {
       display: block;
-      padding-bottom: 5px;
+      float: right;
+      width: auto;
+      height: available;
     }
 
     .page-link {
       display: block;
-      padding: 5px 10px;
+      padding: 10px 15px;
+      border-radius: 10%;
+      color: white;
+      background-color: #888888;
 
       &:not(:last-child) {
-        margin-right: 0;
+        margin-left: 5px;
       }
-      margin-left: 20px;
+      margin-left: 5px;
+      margin-bottom: 5px;
     }
   }
 }
@@ -294,4 +299,17 @@
       @include relative-font-size(1.125);
     }
   }
+}
+
+/**
+  * Iframe positioning in middle
+ */
+
+.gif {
+  display: block;
+  overflow: hidden;
+  margin: auto;
+  border-radius: 50%;
+  width: 240px;
+  height: 240px;
 }
