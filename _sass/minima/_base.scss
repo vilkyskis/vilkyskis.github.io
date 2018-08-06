@@ -232,19 +232,20 @@ table {
   margin-bottom: $spacing-unit;
   width: 100%;
   text-align: $table-text-align;
-  color: lighten($text-color, 18%);
+  color: white;
   border-collapse: collapse;
   border: 1px solid $grey-color-light;
   tr {
+    background-color: #306488;
     &:nth-child(even) {
-      background-color: lighten($grey-color-light, 6%);
+      background-color: #294a80;
     }
   }
   th, td {
     padding: ($spacing-unit / 3) ($spacing-unit / 2);
   }
   th {
-    background-color: lighten($grey-color-light, 3%);
+    background-color: #2374fa;
     border: 1px solid darken($grey-color-light, 4%);
     border-bottom-color: darken($grey-color-light, 12%);
   }
@@ -255,4 +256,9 @@ table {
 
 .profile {
   text-align: center;
+}
+
+.home {
+  text-align: center;
+  padding-top: 10%;
 }
