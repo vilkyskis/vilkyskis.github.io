@@ -12,10 +12,67 @@ layout: 404
   html,body{
     background: blue;
   }
+  .information{
+    text-align: center;
+    margin-top: 35%;
+    font-family: Lucida Console, Lucida Sans Typewriter, monaco, Bitstream Vera Sans Mono, monospace;
+  }
+  /* unvisited link */
+  a:link {
+    color: #ffffff;
+  }
+
+  /* visited link */
+  a:visited {
+    color: #ffffff;
+  }
+
+  /* mouse over link */
+  a:hover {
+    color: blue;
+    background: #aaaaaa;
+    text-decoration: none;
+  }
+
+  /* selected link */
+  a:active {
+    color: #feff00;
+  }
+  .browser{
+    background: #aaaaaa;
+    color: blue;
+  }
+  .browser:any-link{
+    background: #aaaaaa;
+    color: blue;
+  }
+  .site-header{
+    background: blue;
+  }
+  .site-title:hover{
+    background: #aaaaaa;
+    color: blue;
+  }
+  .nav-item a:hover{
+    background: #aaaaaa;
+    color: blue;
+  }
+  .site-nav .page-link {
+    color: #ffffff;
+    line-height: 1.5;
+  }
+  .error-container{
+    text-align: left;
+  }
 </style>
 
-<div style="text-align: center; margin-top: 45%; font-family: Lucida Console;">
-  <h1><strong>:( </strong></h1>
-  <h2>Your web browser ran into problem, that it couldn't handle, and now you need to return to <a href="/">homepage</a>. </h2>
-  <h5>404 ERROR : The requested page could not be found.</h5>
+<div class="information">
+  <h1><strong>:( </strong></h1> <br>
+  <p class="browser"><strong>FATAL ERROR</strong></p>
+  <div class="error-container">
+    <h2>Your web browser ran into problem, that it couldn't handle, and now you need to return to <a href="/" class="browser">homepage</a>. </h2>
+    <br>
+    <h3>ERROR NUMBER : 404</h3>
+    <h3>ERROR DESCRIPTION : The requested page could not be found.</h3>
+  </div>
 </div>
