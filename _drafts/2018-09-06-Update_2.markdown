@@ -1,0 +1,25 @@
+---
+layout: post
+title:  "Update: 0.2"
+date:   2018-09-06 15:52:00 +0300
+categories: site development
+---
+## Changelog ##
+
+* Design changes for phone users
+* Design change on header
+* New layout for projects with more information about them
+
+
+## Future releases ##
+
+* More projects from git
+* More info in /me section
+* cv motivational letter in /me
+
+## Development references ##
+
+[jekyll-mp]: https://jekyllrb.com/
+[minima-gh]: https://github.com/jekyll/minima
+[analytics]: https://desiredpersona.com/google-analytics-jekyll/
+[emoji]: https://help.github.com/articles/emoji-on-github-pages/

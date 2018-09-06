@@ -10,7 +10,7 @@ permalink: /me/
 ***
 
 <br>
-### Hi ***reader!***  <br> My name is *Arminas Šablinskas* and i'm 21 years old. I'm sudying software engineering at [Kaunas University of Technology][ktu].
+### Hi ***reader!***  <br> My name is *Arminas Šablinskas* and i'm 21 years old. I'm studying software engineering at [Kaunas University of Technology][ktu].
 
 ***
 
