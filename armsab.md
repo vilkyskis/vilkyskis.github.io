@@ -10,23 +10,23 @@ permalink: /me/
 ***
 
 <br>
-### Hi ***reader!***  <br> My name is *Arminas Šablinskas* and i'm 21 years old. I'm sudying software engineering at [Kaunas Technology University][ktu].
+### Hi ***reader!***  <br> My name is *Arminas Šablinskas* and i'm 21 years old. I'm sudying software engineering at [Kaunas University of Technology][ktu].
 
 ***
 
 # Skills #
 
 *** 
-<br>
+<br> <meta charset="UTF-8">
 
 | Language      | Knowledge |
 | :-----------: | :-------: |
-| C#            | &hearts; &hearts; &hearts;  |
-| PHP           | &hearts; &hearts; &hearts; &hearts; &hearts;|
-| HTML          | &hearts; &hearts; &hearts; &hearts; &hearts; |
-| CSS           | &hearts; &hearts; &hearts; &hearts; |
-| C             | &hearts; &hearts; |
-| JAVA          | &hearts; &hearts; &hearts; |
+| C#            | :heart: :heart: :heart: |
+| PHP           | :heart: :heart: :heart: :heart: :heart: |
+| HTML          | :heart: :heart: :heart: :heart: :heart: |
+| CSS           | :heart: :heart: :heart: :heart: |
+| C             | :heart: :heart: |
+| JAVA          | :heart: :heart: :heart: |
 
 ***
 
@@ -44,7 +44,8 @@ permalink: /me/
 
 ***
 <br>
-
+* ***KTU "Wanted" karjeros dienos 2017***
+* ***Išmani Lietuva 2017***
 
 ***
 

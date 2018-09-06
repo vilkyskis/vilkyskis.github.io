@@ -6,6 +6,10 @@
 
 ![minima theme preview](/screenshot.png)
 
+## Resources
+
+ https://itsjzt.github.io/ -> color bar
+
 ## Installation
 
 Add this line to your Jekyll site's Gemfile:
