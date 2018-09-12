@@ -263,3 +263,21 @@ table {
   text-align: center;
   padding-top: 10%;
 }
+body {
+  background: radial-gradient(circle, #ffbfef, darkslateblue, #9000da, pink);;
+  animation-name: color;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes color {
+  0% {
+    background: radial-gradient(circle, #ffbfef, #a300f4, #9000da, #56008c);
+  }
+  50% {
+    background: radial-gradient(circle, #ffbfef, blue, #9000da, limegreen);
+  }
+  100 {
+    background: radial-gradient(circle, #ffbfef, red, #9000da, black);
+  }
+}
