@@ -70,20 +70,20 @@
   .il    { color: #099 } // Literal.Number.Integer.Long
 }
 body {
-  background: radial-gradient(circle, #ffbfef, darkslateblue, #9000da, pink);;
+  background-color: #222;
   animation-name: color;
-  animation-duration: 2s;
+  animation-duration: 9s;
   animation-iteration-count: infinite;
 }
 
 @keyframes color {
   0% {
-    background: radial-gradient(circle, #ffbfef, #a300f4, #9000da, #56008c);
+    background-color: #222;
   }
   50% {
-    background: radial-gradient(circle, #ffbfef, blue, #9000da, limegreen);
+    background-color: #4285f4;
   }
   100% {
-    background: radial-gradient(circle, #ffbfef, red, #9000da, black);
+    background-color: #222;
   }
 }
