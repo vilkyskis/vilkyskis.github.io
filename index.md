@@ -5,12 +5,11 @@
 layout: home
 permalink: /
 ---
-<div class="gif" align="center">  
- <iframe src="https://giphy.com/embed/3o752kveIgWk0xDT1e" width="300" height="300" frameBorder="0" class="giphy-embed " style="float:center; display:block" allowFullScreen></iframe><br><p><a href="https://giphy.com/gifs/hello-coffee-hi-3o752kveIgWk0xDT1e">via GIPHY</a></p>
-</div>
-
 <br>
-
+<a href="/me">
+<img style="" src="src/me_wawa.gif">
+</a>
+<br>
 
 # Welcome visitor, my name is Arminas :)
 

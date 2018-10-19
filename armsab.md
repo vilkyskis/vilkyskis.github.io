@@ -10,7 +10,10 @@ permalink: /me/
 ***
 
 <br>
-### Hi ***reader!***  <br> My name is *Arminas Šablinskas* and i'm 21 years old. I'm studying software engineering at [Kaunas University of Technology][ktu].
+
+### Hi ***reader!***  <br> > My name is *Arminas Šablinskas* and i'm 21 years old. I'm studying software engineering at [Kaunas University of Technology][ktu].
+### > Currently I'm doing my **practicum** at [*Teltonika academy*][teltonika].
+### > I'm also part of *KTU student association of informatics faculty*.
 
 ***
 
@@ -44,11 +47,14 @@ permalink: /me/
 
 ***
 <br>
+
 * ***KTU "Wanted" karjeros dienos 2017***
 * ***Išmani Lietuva 2017***
+* ***Kauno startuoliai "Hakatonas" 2018***
 
 ***
 
 [ktu]: https://www.ktu.edu 
+[teltonika]: https://teltonika.lt/lt/
 
 
