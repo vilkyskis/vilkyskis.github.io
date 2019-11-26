@@ -264,20 +264,5 @@ table {
   padding-top: 10%;
 }
 body {
-  background-color: #222;
-  animation-name: color;
-  animation-duration: 9s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes color {
-  0% {
-    background-color: #222;
-  }
-  50% {
-    background-color: #56008c;
-  }
-  100% {
-    background-color: #222;
-  }
+  background-color: #FFFFFF;
 }

@@ -4,7 +4,7 @@ title: Me
 permalink: /me/
 ---
 
-<img style="border-radius:50%; text-align: center;" src="https://scontent.fkun1-1.fna.fbcdn.net/v/t1.0-1/c0.23.160.160/p160x160/31206555_1713760268691521_5626063414347431936_n.jpg?_nc_cat=0&amp;oh=58a980ab501cde05197f2abdaaf37c45&amp;oe=5C08E303">
+<img style="border-radius:50%; text-align: center;" src="https://scontent.fkun1-1.fna.fbcdn.net/v/t1.0-1/p160x160/74284863_2684069298327275_4498988352913014784_o.jpg?_nc_cat=108&_nc_ohc=MErgTNN0axoAQkONjWJ1AhdRwWBtQaZfU9NR1gWEelBq4svpy2Om3XByA&_nc_ht=scontent.fkun1-1.fna&oh=d131dd2ef87c749d795b7320f0a19ad5&oe=5E497619">
 
 
 ***
