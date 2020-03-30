@@ -26,7 +26,12 @@ body{
     <script>
     window.onload = function() {
      
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
 
+        today = mm + '/' + dd + '/' + yyyy;
     
     $.getJSON('https://corona.lmao.ninja/countries/lithuania', setData); 
 
@@ -49,8 +54,10 @@ body{
     		dataPoints: dataPoints
     	}]
     });
+    var today_cases;
 
     function setData(data) {
+        today_cases = data['cases'];
         console.log(data);
             document.getElementById("labelContainer").innerHTML = `Šiuo metu užsikrėtusių : ${data['cases']} <br> Mirusių : ${data['deaths']} <br>Pasveikusių : ${data['recovered']}`;
     }
@@ -62,6 +69,10 @@ body{
     			y: data['timeline']['cases'][key]
     		});
         }
+        dataPoints.push({
+    			x: new Date(today),
+    			y: today_cases
+    		});
     	chart.render();
     }
      
