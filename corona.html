@@ -32,10 +32,14 @@ body{
         var yyyy = today.getFullYear();
     today = mm + '/' + dd + '/' + yyyy;
     var today_cases;
+    var today_deaths;
+    var today_recovered;
     
     
 
     var dataPoints = [];
+    var dataPoints2 = [];
+    var dataPoints3 = [];
      
     var chart = new CanvasJS.Chart("chartContainer", {
     	animationEnabled: true,
@@ -60,17 +64,39 @@ body{
             return " ";
             }
     	},
+        axisY2: {
+            gridThickness: 0,
+            tickLength: 0,
+            lineThickness: 0,
+            fontColor: "black",  
+    		titleFontSize: 24,
+            labelFormatter: function(){
+            return " ";
+            }
+    	},
     	data: [{
     		type: "line",
             color: "white",  
             fontColor: "black", 
     		dataPoints: dataPoints
-    	}]
+    	},{
+		type: "line",
+		axisYType: "secondary",
+		name: "Deaths",
+		dataPoints: dataPoints2
+	},{
+		type: "line",
+		axisYType: "secondary",
+		name: "Recovered",
+		dataPoints: dataPoints3
+	}]
     });
    
 
     sucess:function setData(data) {
         today_cases = data['cases'];
+        today_deaths = data['deaths'];
+        today_recovered = data['recovered'];
         document.getElementById("labelContainer").innerHTML = `Šiuo metu užsikrėtusių : ${data['cases']} <br> Mirusių : ${data['deaths']} <br>Pasveikusių : ${data['recovered']}`;
         dataReady();
     }
@@ -80,6 +106,14 @@ body{
     			x: new Date(today),
     			y: today_cases
     		});
+        dataPoints2.push({
+            x: new Date(today),
+            y: today_deaths
+        });
+        dataPoints3.push({
+            x: new Date(today),
+            y: today_recovered
+        });
     	chart.render();
     }
     function addData(data) {
@@ -87,6 +121,14 @@ body{
             dataPoints.push({
     			x: new Date(key),
     			y: data['timeline']['cases'][key]
+    		});
+            dataPoints2.push({
+    			x: new Date(key),
+    			y: data['timeline']['deaths'][key]
+    		});
+            dataPoints3.push({
+    			x: new Date(key),
+    			y: data['timeline']['recovered'][key]
     		});
         }
     }
