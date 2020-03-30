@@ -39,17 +39,31 @@ body{
      
     var chart = new CanvasJS.Chart("chartContainer", {
     	animationEnabled: true,
-    	theme: "light2",
+    	theme: "dark1",
     	zoomEnabled: true,
-    	title: {
-    		text: "COVID 19 In Lithuania"
+        backgroundColor: "#2196F3",
+        axisX: {
+            gridThickness: 0,
+            tickLength: 0,
+            lineThickness: 0,
+            fontColor: "black",  
+    		titleFontSize: 24,
+
     	},
     	axisY: {
-    		title: "Cases",
+            gridThickness: 0,
+            tickLength: 0,
+            lineThickness: 0,
+            fontColor: "black",  
     		titleFontSize: 24,
+            labelFormatter: function(){
+            return " ";
+            }
     	},
     	data: [{
     		type: "line",
+            color: "white",  
+            fontColor: "black", 
     		dataPoints: dataPoints
     	}]
     });
@@ -85,7 +99,7 @@ body{
     </script>
     </head>
     <body>
-    <div class="label info" style="height: 70px; width: 100%;">Koronos virusas</div>
+    <div class="label info" style="height: 70px; width: 100%;">Koronos virusas Lietuvoje</div>
     <div id="chartContainer" style="height: 370px; width: 100%;"></div>
     <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
     <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
