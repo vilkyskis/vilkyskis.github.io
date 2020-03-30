@@ -1,0 +1,85 @@
+---
+layout: profile
+title: Covid19
+permalink: /corona/
+---
+    <html>
+    <head>
+	<meta charset="UTF-8">
+        <style>
+body{
+    background-color: #2196F3;
+}
+
+        .label {
+  color: white;
+  padding: 8px;
+  padding: 70px 0;
+  text-align: center;
+	text-transform: uppercase;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 32px;
+	font-weight: 100;
+}
+
+.success {background-color: #4CAF50;} /* Green */
+.info {background-color: #2196F3;} /* Blue */
+.warning {background-color: #ff9800;} /* Orange */
+.danger {background-color: #f44336;} /* Red */
+.other {background-color: #e7e7e7; color: black;} /* Gray */</style>
+    <script>
+    window.onload = function() {
+     
+
+    
+    $.getJSON('https://corona.lmao.ninja/countries/lithuania', setData); 
+
+
+    var dataPoints = [];
+     
+    var chart = new CanvasJS.Chart("chartContainer", {
+    	animationEnabled: true,
+    	theme: "light2",
+    	zoomEnabled: true,
+    	title: {
+    		text: "COVID 19 In Lithuania"
+    	},
+    	axisY: {
+    		title: "Cases",
+    		titleFontSize: 24,
+    	},
+    	data: [{
+    		type: "line",
+    		dataPoints: dataPoints
+    	}]
+    });
+
+    function setData(data) {
+        console.log(data);
+            document.getElementById("labelContainer").innerHTML = `Šiuo metu užsikrėtusių : ${data['cases']} <br> Mirusių : ${data['deaths']} <br>Pasveikusių : ${data['recovered']}`;
+    }
+
+    function addData(data) {
+        for(var key in data['timeline']['cases']){
+            dataPoints.push({
+    			x: new Date(key),
+    			y: data['timeline']['cases'][key]
+    		});
+        }
+    	chart.render();
+    }
+     
+    $.getJSON("https://corona.lmao.ninja/v2/historical/lithuania", addData);
+     
+    }
+    </script>
+    </head>
+    <body>
+    <div class="label info" style="height: 70px; width: 100%;">Koronos virusas</div>
+    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+    <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+    <div id="labelContainer" class="label info" style="height: 170px; width: 100%;"></div>
+    </body>
+    </html>    
+                       
