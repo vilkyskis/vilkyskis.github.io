@@ -51,9 +51,6 @@ body{
         var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
         var yyyy = today.getFullYear();
     today = mm + '/' + dd + '/' + yyyy;
-    var today_cases;
-    var today_deaths;
-    var today_recovered;
     
     
 
@@ -112,74 +109,67 @@ body{
 		dataPoints: dataPoints3
 	}]
     });
-   
-
-    sucess:function setData(data) {
-        today_cases = data['cases'];
-        today_deaths = data['deaths'];
-        today_recovered = data['recovered'];
-        document.getElementById("labelContainer").innerHTML = `Šiuo metu užsikrėtusių : ${data['cases']} <br> Mirusių : ${data['deaths']} <br>Pasveikusių : ${data['recovered']}`;
-        dataReady();
-    }
-    
-    var todays_data_json;
-    var historical_data_json;
-
-    var todays_data_set = false;
-    var hystorical_data_set = false;
 
 
-    function setTodaysData(data){
-        today_cases = data['cases'];
-        today_deaths = data['deaths'];
-        today_recovered = data['recovered'];
-        document.getElementById("labelContainer").innerHTML = `Šiuo metu užsikrėtusių : ${data['cases']} <br> Mirusių : ${data['deaths']} <br>Pasveikusių : ${data['recovered']}`; 
-        todays_data_json = data;
-        todays_data_set = true;
-        dataReady();
-    }
-
-    function dataReady(){
-        if(hystorical_data_set = true){
-        dataPoints.push({
-    			x: new Date(today),
-    			y: today_cases
-    		});
-        dataPoints2.push({
-            x: new Date(today),
-            y: today_deaths
-        });
-        dataPoints3.push({
-            x: new Date(today),
-            y: today_recovered
-        });
-    	chart.render();
+    // Now using `then`
+    function getTodaysData(){
+    return $.getJSON("https://corona.lmao.ninja/countries/lithuania").then(function(data){
+        return {
+            today_cases : data['cases'],
+            today_deaths : data['deaths'],
+            today_recovered : data['recovered']
         }
+    });
     }
 
-    function postDataReady(data){
-        for(var key in data['timeline']['cases']){
+    function getHistoricalData(){
+    return $.getJSON("https://corona.lmao.ninja/v2/historical/lithuania").then(function(data){
+        return {
+            hist_cases : data['timeline']['cases'],
+            hist_deaths : data['timeline']['deaths'],
+            hist_recovered : data['timeline']['recovered']
+        }
+    });
+    }
+
+    getHistoricalData().then(function(returndata){
+    //received data!
+            for(var key in returndata['hist_cases']){
             dataPoints.push({
     			x: new Date(key),
-    			y: data['timeline']['cases'][key]
+    			y: returndata['hist_cases'][key]
     		});
             dataPoints2.push({
     			x: new Date(key),
-    			y: data['timeline']['deaths'][key]
+    			y: returndata['hist_deaths'][key]
     		});
             dataPoints3.push({
     			x: new Date(key),
-    			y: data['timeline']['recovered'][key]
+    			y: returndata['hist_recovered'][key]
     		});
         }
-    }
-    function addData(data) {
-        postDataReady(data);
-        hystorical_data_set = true;
-    }
-    $.getJSON('https://corona.lmao.ninja/countries/lithuania', setTodaysData); 
-    $.getJSON("https://corona.lmao.ninja/v2/historical/lithuania", addData);
+    });
 
+    //and in your call will listen for the custom deferred's done
+    getTodaysData().then(function(returndata){
+    //received data!
+    document.getElementById("labelContainer").innerHTML = `Šiuo metu užsikrėtusių : ${returndata['today_cases']} <br> Mirusių : ${returndata['today_deaths']} <br>Pasveikusių : ${returndata['today_recovered']}`; 
+    dataPoints.push({
+    			x: new Date(today),
+    			y: returndata['today_cases']
+    		});
+        dataPoints2.push({
+            x: new Date(today),
+            y: returndata['today_deaths']
+        });
+        dataPoints3.push({
+            x: new Date(today),
+            y: returndata['today_recovered']
+        });
+    	chart.render();
+    });
+
+    
 
      
     }
