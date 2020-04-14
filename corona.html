@@ -57,6 +57,10 @@ body{
     var dataPoints = [];
     var dataPoints2 = [];
     var dataPoints3 = [];
+
+    var dataPoints_1 = [];
+    var dataPoints2_1 = [];
+    var dataPoints3_1 = [];
      
     var chart = new CanvasJS.Chart("chartContainer", {
     	animationEnabled: true,
@@ -110,19 +114,81 @@ body{
 	}]
     });
 
+    var chart2 = new CanvasJS.Chart("chartContainer2", {
+        type: 'line',
+    	animationEnabled: true,
+    	theme: "dark1",
+    	zoomEnabled: true,
+        backgroundColor: "#2196F3",
+        axisX: {
+            gridThickness: 0,
+            tickLength: 0,
+            lineThickness: 0,
+            fontColor: "black",  
+    		titleFontSize: 24,
+
+    	},
+    	axisY: {
+            gridThickness: 0,
+            tickLength: 0,
+            lineThickness: 0,
+            fontColor: "black",  
+    		titleFontSize: 24,
+            labelFormatter: function(){
+            return " ";
+            }
+    	},
+        axisY2: {
+            gridThickness: 0,
+            tickLength: 0,
+            lineThickness: 0,
+            fontColor: "black",  
+    		titleFontSize: 24,
+            labelFormatter: function(){
+            return " ";
+            }
+    	},
+    	data: [{
+            color: "	#EBB035",  
+            fontColor: "black", 
+            axisYType: "secondary",
+    		dataPoints: dataPoints_1,
+            lineTension: 0.4,   
+            fill:true,
+            cubicInterpolationMode:'default',
+    	},{
+            color: '#DD1E2F',
+		axisYType: "secondary",
+		name: "Deaths",
+		dataPoints: dataPoints2_1,
+        lineTension: 0.4,   
+            fill:true,
+            cubicInterpolationMode:'default',
+	},{
+		axisYType: "secondary",
+        color: ' #218559',
+		name: "Recovered",
+		dataPoints: dataPoints3_1,
+        lineTension: 0.4,   
+            fill:true,
+            cubicInterpolationMode:'default', 
+	}]
+    });
+
 
     // Now using `then`
-    function getTodaysData(){
+    async function getTodaysData(){
     return $.getJSON("https://corona.lmao.ninja/countries/lithuania").then(function(data){
         return {
             today_cases : data['cases'],
+            todayCases : data['todayCases'],
             today_deaths : data['deaths'],
             today_recovered : data['recovered']
         }
     });
     }
 
-    function getHistoricalData(){
+    async function getHistoricalData(){
     return $.getJSON("https://corona.lmao.ninja/v2/historical/lithuania").then(function(data){
         return {
             hist_cases : data['timeline']['cases'],
@@ -132,8 +198,10 @@ body{
     });
     }
 
+    var lastkey;
     getHistoricalData().then(function(returndata){
     //received data!
+
             for(var key in returndata['hist_cases']){
             dataPoints.push({
     			x: new Date(key),
@@ -147,13 +215,28 @@ body{
     			x: new Date(key),
     			y: returndata['hist_recovered'][key]
     		});
+            if (lastkey){
+            dataPoints_1.push({
+    			x: new Date(key),
+    			y: returndata['hist_cases'][key]-returndata['hist_cases'][lastkey]
+    		});
+            dataPoints2_1.push({
+    			x: new Date(key),
+    			y: returndata['hist_deaths'][key]-returndata['hist_deaths'][lastkey]
+    		});
+            dataPoints3_1.push({
+    			x: new Date(key),
+    			y: returndata['hist_recovered'][key]-returndata['hist_recovered'][lastkey]
+    		});
+            }
+            lastkey = key;
         }
     });
 
     //and in your call will listen for the custom deferred's done
     getTodaysData().then(function(returndata){
     //received data!
-    document.getElementById("labelContainer").innerHTML = `Šiuo metu užsikrėtusių : ${returndata['today_cases']} <br> Mirusių : ${returndata['today_deaths']} <br>Pasveikusių : ${returndata['today_recovered']}`; 
+    document.getElementById("labelContainer").innerHTML = `Šiuo metu užsikrėtusių : ${returndata['today_cases']} <br>Per parą užsikrėtusių padaugėjo : ${returndata['todayCases']}<br> Mirusių : ${returndata['today_deaths']} <br>Pasveikusių : ${returndata['today_recovered']}`; 
     dataPoints.push({
     			x: new Date(today),
     			y: returndata['today_cases']
@@ -167,11 +250,9 @@ body{
             y: returndata['today_recovered']
         });
     	chart.render();
+        chart2.render();
     });
 
-    
-
-     
     }
     </script>
     </head>
@@ -182,6 +263,8 @@ body{
     <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
     <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
     <div id="labelContainer" class="label info" style="height: 170px; width: 100%;"></div>
+    <div class="label info" style="height: 70px; width: 100%;">Susirgimų, pasveikimų, mirčių skaičius kasdieną</div>
+    <div id="chartContainer2" style="height: 370px; width: 100%;"></div>
     </body>
     </html>    
                        
