@@ -178,7 +178,7 @@ body{
 
     // Now using `then`
     async function getTodaysData(){
-    return $.getJSON("https://corona.lmao.ninja/countries/lithuania").then(function(data){
+    return $.getJSON("https://corona.lmao.ninja/v2/countries/lithuania").then(function(data){
         return {
             today_cases : data['cases'],
             todayCases : data['todayCases'],
