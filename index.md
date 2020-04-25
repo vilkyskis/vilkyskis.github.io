@@ -7,7 +7,7 @@ permalink: /
 ---
 <br>
 <a href="/me">
-<img style="" src="src/photo4.png">
+<img style="" src="src/photo6.png">
 </a>
 <br>
 
