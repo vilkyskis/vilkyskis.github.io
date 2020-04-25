@@ -101,7 +101,8 @@
 
   @include media-query($on-palm) {
     alignment: right;
-    background-color: #9000da;
+    background: rgb(0, 0, 0); /* Fallback color */
+    background: rgba(0, 0, 0, 0.5); 
     border: 1px solid $grey-color-light;
     border-radius: 5px;
     text-align: right;
